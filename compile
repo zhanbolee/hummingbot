@@ -2,4 +2,11 @@
 
 cd $(dirname "$0")
 
+conda init
+conda create -n hummingbot python=3.11 -y
+conda activate hummingbot
+conda install -c conda-forge pandas numpy cython pandas-ta -y
+conda install -c conda-forge compilers make cmake -y
+pip3 install -e . -i https://pypi.org/simple/
+conda install -c ptpython
 python setup.py build_ext --inplace
